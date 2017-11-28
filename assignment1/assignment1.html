@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>currency converter</title>
+    <style type="text/css">
+      #main_section {
+        border-style: solid;
+      }
+
+      #header {
+        background-color: green;
+      }
+
+      #results {
+        color: blue;
+      }
+    </style>
+    <script>
+      // coversion calculator
+      function calculate() {
+        // euros
+        if (document.getElementById("country").value == "eur") {
+          var dollars, euro;
+          dollars = parseFloat(document.getElementById("txtDollars").value);
+          euro = dollars * .84;
+          document.getElementById("results").innerHTML = euro.toFixed(2)
+          + " Euro(s).";
+        }
+
+        // yuan
+        else if (document.getElementById("country").value == "chi") {
+          var dollars, yuan;
+          dollars = parseFloat(document.getElementById("txtDollars").value);
+          yuan = dollars * 6.57;
+          document.getElementById("results").innerHTML = yuan.toFixed(2)
+          + " Yuan.";
+        }
+
+        // peso
+        else if (document.getElementById("country").value == "mex") {
+          var dollars, peso;
+          dollars = parseFloat(document.getElementById("txtDollars").value);
+          peso = dollars * 17.80;
+          document.getElementById("results").innerHTML = peso.toFixed(2)
+          + " Peso(s).";
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <div id="header">
+      <img src="currency.jpg" alt="picture of money">
+      <h1> Currency Converter </h1>
+    </div><!-- end of header div -->
+
+    <div id = "main_section">
+      <form id=convert>
+        <!-- textbox -->
+        <p>U.S. Dollars: <input type="text" id="txtDollars"/></p>
+        <p>Convert to:</p>
+        <!-- currency converter -->
+        <select id="country">
+          <option value="mex">  Mexican Peso</option>
+          <option value="eur">  Euros</option>
+          <option value="chi">  Chinese Yuan</option>
+        </select>
+        <!-- submit button -->
+        <p><input type="button" value="submit" onclick="calculate()"/></p>
+      </form>
+    </div><!-- end of main content -->
+
+    <div id="results"></div><!-- end of results div -->
+  </body>
+
+</html>

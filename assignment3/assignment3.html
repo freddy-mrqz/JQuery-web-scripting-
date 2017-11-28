@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I LIKE TURTLES</title>
+  <style>
+    .imageborder {
+      border: 5px dashed red;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function changeFont() {
+      if (document.getElementById('font').value == "A") {
+        $('p').css('font-family', 'Arial');
+      }
+      if (document.getElementById('font').value == "V") {
+        $('p').css('font-family', 'Verdana');
+      }
+      if (document.getElementById('font').value == "T") {
+        $('p').css('font-family', 'Times New Roman');
+      }
+    }
+
+    function calculate() {
+      var year = parseInt(document.getElementById('txtYear').value);
+      var age = year - 1996;
+      $('#about_turtles').append("<p>In " + year + ", Nickel will be " + age + " years old!</p>");
+    }
+
+    function bord() {
+        $('img').addClass( "imageborder" );
+
+    }
+
+    function bordgone() {
+        $('img').removeClass("imageborder");
+    }
+  </script>
+</head>
+<body>
+  <img onmouseover=bord() onmouseout=bordgone() src="nickel.jpg" alt="a photo of Nickel the turtle">
+  <div id="about_turtles">
+    <h2>All About Turtles</h2>
+    <p>Turtles are reptiles of the order Testudines (or Chelonii)
+       characterised by a special bony or cartilaginous shell developed from
+       their ribs and acting as a shield. "Turtle" may refer to the order as
+       a whole (American English) or to fresh-water and sea-dwelling testudines
+       (British English).</p>
+    <p>The order Testudines includes both extant (living) and extinct species.
+       The earliest known members of this group date from 157 million years ago,
+       making turtles one of the oldest reptile groups and a more ancient group
+       than snakes or crocodilians. Of the 327 known species alive today, some
+       are highly endangered.</p>
+  </div>
+    <hr>
+    <input type="button" value="Shrink Image" onclick="$('img').height(200).width(307);">
+    <input type="button" value="Enlarge Pic" onclick="$('img').height(400).width(580);">
+    <input type="button" value="Restore Pic" onclick="$('img').height(300).width(460);">
+    <hr>
+    <select id="font" onchange="changeFont()">
+      <option value="">Select a font</option>
+      <option value="A">Arial</option>
+      <option value="V">Verdana</option>
+      <option value="T">Times New Roman</option>
+    </select>
+    <hr>
+    <p>How old will Nickel be in <input type="text" id="txtYear">?</p>
+    <input type="button" value="Enter a year after 2016" onclick="calculate()">
+    <hr>
+</body>
+</html>

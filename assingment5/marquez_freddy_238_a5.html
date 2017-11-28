@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Practice Page</title>
+
+  <style type="text/css">
+    #main_content {
+      width: 600px;
+      border: 2px solid;
+      background-color: peachpuff;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: red;
+    }
+
+    .emphasize {
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('img').attr('height', '50px').attr('width', '50px'); //make all images 50x50 pixel
+
+      $('img').click(function(){
+        if ($('#fileName').is(':checked')){
+          var fileStr = $(this).attr('src');
+          $('#img_attributes').empty();
+          $('#img_attributes').append(fileStr);
+        }
+        else {
+          var fileStr = $(this).attr('alt');
+          $('#img_attributes').empty();
+          $('#img_attributes').append(fileStr);
+        }
+      }); //end of click()
+
+      $('img').dblclick(function() {
+        var imgNum = $(this).index();
+        console.log(imgNum);
+        var imgBall = document.images[imgNum];
+        var newWindow = window.open('', "imageWindow", "height=500, width=500");
+        newWindow.document.write(imgBall.outerHTML);
+      }); //end of doubleclick()
+
+      $('#txtName').blur(function() {
+        var nameInput = $('#txtName').val();
+        if (nameInput == "") {
+          $("#name").empty();
+          $('#name').append('You must enter a name.');
+        }
+        else {
+          $("#name").empty();
+          $('#name').append("<p>Hello, " + nameInput + "</p>");
+        }
+      }); //end blur()
+
+      $('#txtName').focus(function() {
+        $("#name").empty();
+      }); //end focus()
+
+    }); //end ready()
+
+  </script>
+</head>
+
+<body>
+  <div id="main_content">
+    <h2>Page of Random Things</h2>
+    <div id="random_text">
+      <p>This page is intended to give you a way to practice with techniques throughout the course. Experiment with it, try new stuff, break it, etc, etc. If the page gets out of hand after numerous modifications, simply download a 'fresh' copy from the
+        class web page. </p>
+
+      <p>Here is a paragraph of random text. It says absolutely nothing useful. </p>
+
+      <p>This is a second paragraph of completely usesless text.</p>
+    </div>
+    <!-- end of 'random_text' div -->
+
+    <hr>
+    <form id="img_btns">
+      <input type="radio" name="attributes" id="fileName" checked>File Name
+      <input type="radio" name="attributes" id="descprition">Description
+    </form>
+    <!-- end of 'img_btns' form -->
+    <br>
+
+    <div id="img_attributes"></div>
+    <!-- end of 'img_attributes' div -->
+
+    <div id="images">
+      <h3>Some Images</h3>
+      <p><img src="firetruck.jpg" alt="pic of truck"> |
+        <img src="baseball.jpg" alt="pic of baseball"> |
+        <img src="soccer_ball.jpg" alt="pic of soccer ball">
+      </p>
+
+      <p><img src="hockey_puck.jpg" alt="pic of hockey puck"> |
+        <img src="tennis_ball.jpg" alt="pic of tennis ball"> |
+        <img src="basketball.jpg" alt="pic of basketball"> </p>
+    </div>
+    <!-- end of 'images' div -->
+    <hr>
+
+    <div id="anchors">
+      <h3>Some Hyperlinks</h3>
+      <a href="http://www.mozart.com">All About Mozart</a><br>
+      <a href="http://en.wikipedia.org/wiki/Queen_(band)">All About Queen</a><br>
+      <a href="http://www.asparagus.org/">All About Asparagus</a><br>
+    </div>
+
+    <hr>
+    <h3>Some Lists</h3>
+    <div id="lists">
+      <h4>Fabulous Fruit</h4>
+      <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Strawberry</li>
+      </ul>
+
+      <h4>Varied Veggies</h4>
+      <ul>
+        <li>Broccoli</li>
+        <li>Asparagus</li>
+        <li>Cauliflower</li>
+      </ul>
+
+    </div>
+    <!-- end lists div -->
+
+    <hr>
+    <h3>Some Form Elements</h3>
+    <div id="practice_form">
+      <p> What is your name? <input type="text" value="Enter some name" id="txtName"> </p>
+      <p> How old are you? <input type="text" value="Enter your age" id="txtAge"> </p>
+      <p> Do you agree to our terms of service? <input type="checkbox" id="chkAgree"> </p>
+
+      <p> <input type="button" value="Button #1" id="button1"> |||
+        <input type="button" value="Button #2" id="button2"> |||
+        <input type="button" value="Button #3" id="button3">
+      </p>
+    </div>
+    <!-- end of 'practice_form' div -->
+
+    <div id="name"></div>
+    <!-- end of 'name' div -->
+
+  </div>
+  <!-- end 'main_content' div -->
+</body>
+
+</html>

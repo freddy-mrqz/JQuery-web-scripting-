@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment2</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function fadeFood() {
+	    $('#food h2').fadeOut(1000).fadeIn(1000);
+    }
+
+    function fadeAbout() {
+	    $('#me h2').fadeOut(1000).fadeIn(1000);
+    }
+  </script>
+</head>
+<body>
+  <div id="header">
+    <h1>My First JQuery Page</h1>
+  </div><!-- end of header div -->
+
+  <div id="main_content">
+    <div id="me">
+      <h2>A Little Bit About Me</h2>
+        <p>Software Engineering Major at DePaul</p>
+      <h2>Things I Like</h2>
+        <p>I like listening to all kinds of music and eating sushi.</p>
+    </div><!-- end of me div -->
+
+    <div id="food">
+      <h2>Drinks</h2>
+      <ol id=drinks>
+        <li>Horchata</li>
+        <li>Cold brew</li>
+        <li>Hot Chocolate</li>
+      </ol>
+
+      <h2>Desserts</h2>
+      <ol id=deserts>
+        <li>Flan</li>
+        <li>Ice cream</li>
+        <li>Brownies</li>
+      </ol>
+    </div><!-- end of food div -->
+
+  </div><!-- end of main_content div -->
+
+  <hr>
+
+  <div id="actions">
+    Fade the 'Food' H2s                             <input type="radio" name="radAction" id="1" onclick="fadeFood()"><br>
+    Fade the 'About Me' H2s                         <input type="radio" name="radAction" id="2" onclick="fadeAbout()"><br>
+    hide the first item under drinks                <input type="radio" name="radAction" id="3" onclick="$('li:first').hide();"><br>
+    hide the first item under deserts               <input type="radio" name="radAction" id="4" onclick="$('#deserts li:first').hide();"><br>
+    hide all list items with the word 'Ice' in them <input type="radio" name="radAction" id="5" onclick="$('li:contains(Ice)').hide();"><br>
+    Make all list items visible                     <input type="radio" name="radAction" id="6" onclick="$('li:hidden').show();"><br>
+  </div><!-- end of actions div -->
+
+</body>
+</html>
